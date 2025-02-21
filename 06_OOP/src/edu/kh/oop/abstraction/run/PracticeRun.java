@@ -11,7 +11,6 @@ public class PracticeRun {
 	public static void main(String[] args) {
 		
 		BookService service = new BookService();
-		service.Book();
 		
 		
 		
