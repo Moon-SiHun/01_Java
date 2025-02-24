@@ -2,27 +2,35 @@ package com.kh.practice.snack.mode.vo;
 
 public class Snack {
 	
-	//기본 생성자
+	// 필드
 	private String kind; // 종류
 	private String name; // 이름
 	private String flavor; // 맛
 	private int numOf; // 개수
 	private int price; // 가격
 	
+	
+	//기본 생성자
 	public Snack() {
 		
-		this.kind = kind;
-		this.name = name;
-		this.flavor = flavor;
-		this.numOf = numOf;
-		this.price = price;
+		this.kind = "null";
+		this.name = "null";
+		this.flavor = "null";
+		this.numOf = 0;
+		this.price = 0;
 		
 		
 		
 	}
 	
-	public void Snack(String kind, String name, 
-			String flavor, int numof, int price ) {
+	//매개변수 생성자
+	public Snack (String kind, String name, 
+			String flavor, int numOf, int price ) {
+		this.kind = kind;
+		this.name = name;
+		this.flavor = flavor;
+		this.numOf = numOf;
+		this.price = price;
 		
 		
 	}
