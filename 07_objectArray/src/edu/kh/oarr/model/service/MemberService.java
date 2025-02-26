@@ -1,6 +1,5 @@
 package edu.kh.oarr.model.service;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 import edu.kh.oarr.model.vo.Member;

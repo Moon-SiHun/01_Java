@@ -8,7 +8,8 @@ public class PracticeRun {
 		// 참조할 클래스명 변수 = new 참조할 클래스명(); 
 		OperatorPractice practice = new OperatorPractice();
 		// 변수.참조할 메서드();
-		practice.practice1();
+		practice.practice2();
+		
 		
 		
 		
