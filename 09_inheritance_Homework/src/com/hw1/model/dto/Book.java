@@ -2,8 +2,8 @@ package com.hw1.model.dto;
 
 public abstract class Book {
 	
-	private String title;
-	private String author;
+	private String title; // 제목
+	private String author; // 저자
 	
 	public Book() {}
 

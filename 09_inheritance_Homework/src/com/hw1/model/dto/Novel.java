@@ -21,8 +21,8 @@ public class Novel extends Book{
 	
 	@Override
 	public void displayinfo() {
-		System.out.println(String.format("[소설] 제목 : %s / 저자 : %s / 장르 : %s",
-				getTitle(), getAuthor(), getGenre()));
+		System.out.printf("[소설] 제목 : %s / 저자 : %s / 장르 : %s",
+				getTitle(), getAuthor(), genre);
 			
 		//[소설] 제목 : 해리포터/ 저자 : J.K 롤링 / 장르 : 판타지
 	}

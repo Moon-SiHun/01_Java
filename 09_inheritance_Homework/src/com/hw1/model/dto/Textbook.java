@@ -6,9 +6,12 @@ public class Textbook extends Book {
 	
 	public Textbook() {}
 
-	public Textbook(String title, String author, String genre, String subject) {
+	public Textbook(String title, String author, String subject) {
+		super(title, author);
 		this.subject = subject;
 	}
+
+
 
 	public String getSubject() {
 		return subject;
@@ -21,5 +24,7 @@ public class Textbook extends Book {
 
 	@Override
 	public void displayinfo() {
+		System.out.printf("[전문서적] 제목 : %s / 저자 :  %s / 과목 : %s",
+				super.getTitle(), super.getAuthor(), subject);
 }
 }
