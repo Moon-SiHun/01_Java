@@ -1,4 +1,4 @@
-package com.hw3.modle.dto;
+package com.hw3;
 
 public class Book {
 	private String title; // 책제목

@@ -1,6 +1,5 @@
-package com.hw3.run;
+package com.hw3;
 
-import com.hw3.modle.dto.BookService;
 
 public class Run {
 
