@@ -7,13 +7,12 @@ import java.util.Scanner;
 
 import com.toyFactory.model.dto.Toy;
 
-public class ToyFactory extends Toy {
+public class ToyFactory {
 	
 	private Scanner sc = new Scanner(System.in);
 	
 	private Map<Integer, String> map = new LinkedHashMap<Integer, String>();
 	
-	map.put(1. "허기워기");
 	
 
 }

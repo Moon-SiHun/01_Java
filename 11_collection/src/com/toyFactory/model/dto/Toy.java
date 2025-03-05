@@ -42,7 +42,7 @@ public class Toy {
 		this.age = age;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
@@ -66,11 +66,11 @@ public class Toy {
 		this.since = since;
 	}
 
-	public String getMaterial() {
-		return material;
+	public Set<String> getMaterial() {
+		return (Set<String>) material;
 	}
 
-	public void setMaterial(String material) {
+	public void setMaterial(Set<String> material) {
 		this.material = material;
 	}
 
