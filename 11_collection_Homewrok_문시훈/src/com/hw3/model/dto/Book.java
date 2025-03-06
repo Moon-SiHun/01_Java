@@ -1,49 +1,20 @@
 package com.hw3.model.dto;
 
-import java.util.Objects;
+public class Book {
+	private String title; // 책제목
+	private String writer; // 저자
+	private int price; // 가격
+	private String publisher; // 출판사
+	private int bookNum; // 책 번호
+	
+	public Book() {}
 
-public class Book {//속성
-
-	private int bookNum;
-	private String title;
-	private String author;
-	private int price;
-	private String company;
-	
-	public Book() {}//기본생성자
-
-
-
-	//기능 
-	
-	
-	
-	
-	
-	public Book(int bookNum, String title, String author, int price, String company) {
-		
-		this.bookNum = bookNum;
+	public Book(String title, String writer, int price, String publisher, int bookNum) {
+		super();
 		this.title = title;
-		this.author = author;
+		this.writer = writer;
 		this.price = price;
-		this.company = company;
-	}
-
-
-
-	
-	
-	
-	
-	
-	
-	public int getBookNum() {
-		return bookNum;
-	}
-
-	
-
-	public void setBookNum(int bookNum) {
+		this.publisher = publisher;
 		this.bookNum = bookNum;
 	}
 
@@ -55,12 +26,12 @@ public class Book {//속성
 		this.title = title;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getWriter() {
+		return writer;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 
 	public int getPrice() {
@@ -71,23 +42,32 @@ public class Book {//속성
 		this.price = price;
 	}
 
-	public String getCompany() {
-		return company;
+	public String getPublisher() {
+		return publisher;
 	}
 
-	public void setCompany(String company) {
-		this.company = company;
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 
+	public int getBookNum() {
+		return bookNum;
+	}
+
+	public void setBookNum(int bookNum) {
+		this.bookNum = bookNum;
+	}
+	
+	
 	@Override
-	public int hashCode() {
-		return Objects.hash(author, bookNum, company, price, title);
+	public String toString() {
+		return  bookNum + "번 도서 : [도서제목 : " + title + 
+				" / 도서저자 : " + writer 
+				+ " / 도서가격 : " + price + "원 / 출판사 : " + publisher + "]" ;
 	}
-
-
-	
-	}
-
 	
 	
-
+	
+	
+	
+}

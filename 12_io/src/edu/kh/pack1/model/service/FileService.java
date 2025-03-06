@@ -6,16 +6,15 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 public class FileService {
-	
 	/* File 클래스
 	 *
 	 * - java.io 패키지
 	 *
 	 * - 파일/디렉토리(폴더)를 관리하는 클래스
 	 *   (파일/디렉토리 존재 유무 관계 없음)
-	 *
+	 * 
 	 * - 파일 생성, 제거, 이름, 크기, 마지막 수정일, 존재여부 등의 기능 제공
-	 *
+	 * 
 	 * - File 클래스 메서드
 	 *
 	 * boolean  mkdir()          : 디렉토리 생성
@@ -40,7 +39,7 @@ public class FileService {
 	 *
 	 *  (Windows)    /     (Linux, Mac)
 	 *    폴더       /      디렉토리
-	 *
+	 * 
 	 * - 경로 표기 방법(하위 폴더, 파일 표시)
 	 *
 	 * 백슬래시 (\, Windows)     -> C:\workspace\01_Java
@@ -78,25 +77,29 @@ public class FileService {
 	 */
 	public void method1() {
 		
-		// 제일 앞에 "/"의 의미 : 최상위 폴더(== root, 절대 경로의 기준점)
-		// 리눅스, mac에서는 User/ , 윈도우에서는 C:/, D:/ 등
+		// 제일 앞에 "/" 의 의미 : 최상위 폴더( == root, 절대 경로의 기준점 )
+		// 리눅스, mac에서는 Users/ , 윈도우에서는 C:/, D:/ 등 
 		
-		//	C:/io_test/20250305 폴더를 지정
+		//   C:/io_test/20250305 폴더를 지정
 		File directory = new File("/io_test/20250305");
 		
 		// 존재하지 않는 폴더를 관리하는 File 객체 생성
 		
-		if(!directory.exists()) { // 폴더가 존재하지 않으면
-		
+		if( !directory.exists() ) { // 폴더가 존재하지 않으면
+			
 			// 폴더를 모두 생성
 			directory.mkdirs();
 			
-			System.out.println(directory.getName());
+			System.out.println(directory.getName()); 
 			System.out.println(directory.getPath());
+		}
+		
+		
+		
+		
+		
 	}
-
-
-}
+	
 	
 	/**
 	 * File 객체를 이용해서
@@ -106,80 +109,98 @@ public class FileService {
 		
 		// 문자열에서 "\" 표기하는 방법 "\\"
 		// -> 역슬래시는 이스케이프 문자로 사용됨
-		// -> 역슬래시 자체를 문자로 사용하고 싶을 땐 2개를 사용 \\
+		// -> 역슬래시 자체를 문자로 사용하고 싶을땐 2개를 사용 \\
 		File file = new File("\\io_test\\20250305\\파일생성.txt");
 		
-		if(!file.exists()) { // 존재하지 않으면
-		
+		if( !file.exists() ) { // 존재하지 않으면
+			
 			// 파일 생성
 			try {
 				
-			// File 클래스의 메서드는 대부분 IOException 발생 시킴
-			// -> IOException은 반드시 예외처리를 해야 하는 Checked Exception
-			// -> 예외 처리 필수
-				if(file.createNewFile());{ // 파일이 정상 생성된 경우
-					System.out.println(file.getName() + "파일이 생성되었습니다");
-					
+				// File 클래스의 메서드는 대부분 IOException 발생 시킴
+				// -> IOException는 반드시 예외처리를 해야하는 Checked Exception
+				// -> 예외 처리 필수!
+				
+				if( file.createNewFile() ) { // 파일이 정상 생성된 경우
+					System.out.println(file.getName() + " 파일이 생성되었습니다.");
 				}
 				
 			} catch(IOException e) {
-				e.printStackTrace();
+				e.printStackTrace(); 
 				// 예외 정보 + 예외가 발생한 위치까지의 메서드 추적
 			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
 	}
-}
+
 
 	/**
 	 * File 클래스 제공 메서드 활용하기
 	 */
 	public void method3() {
-	
+		
 		// File 객체 생성
 		File directory = new File("\\workspace\\01_Java\\12_io");
 		
 		// 지정된 경로에 있는 모든 파일/디렉토리를 File[] 형태로 얻어오기
 		File[] files = directory.listFiles();
 		
-		//System.out.println(Arrays.toString(files));
+		//System.out.println( Arrays.toString(files) );
 		
 		// 향상된 for문
-		for(File f : files ) {
+		for(File f : files) {
 			
-			// 파일명
+			// 파일명 
 			String fileName = f.getName();
 			
-			//마지막으로 수정한 날짜
+			// 마지막으로 수정한 날짜
 			long lastModified = f.lastModified();
+			//System.out.println(lastModified); // 1741135065348
 			
 			// java.text.SimpleDateFormat : 간단히 날짜 형식을 지정할 수 있는 객체
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd a h:mm");
-														// 2025-03-05 오전 10:00
+													// 2025-03-05 오전 10:33
 			
 			// String SimpleDateFormat.format(long) :
 			// 매개변수 long 값을 지정된 패턴 형식으로 변환하여
-			// 문자열 형태로 반환 
+			// 문자열 형태로 반환
 			String date = sdf.format(lastModified);
 			
-			// System.out.println(date); // 2025-03-05 오전 9:37
+			//System.out.println(date); // 2025-03-05 오전 9:37
 			
 			// 파일 유형
 			String type = null;
 			if(f.isFile()) type = "파일";
-			else		   type = "폴더";
+			else			type = "폴더";
 			
-			// 파일 크기
+			// 파일 크기(byte)
 			String size = f.length() + "B";
-			if(f.isDirectory()) size = ""; // 폴더라면 사이즈 반문자열로 변경
+			if(f.isDirectory()) size = ""; // 폴더라면 사이즈 빈문자열로 변경
 			// -> 폴더 크기를 구하는 메서드는 따로 존재하지 않음
-			// -> 구하려면 폴더 안의 모든 파일을 순회하여 각 파일 크기를 합산해서 써야함
+			// -> 구하려면 폴더안의 모든 파일을 순회하여 각 파일 크기를 합산해서 써야함.
 			
 			String result = String.format("%-20s %-20s %-5s %10s", 
-					fileName, date, type, size);
-					
+											fileName, date, type, size);
+			
 			System.out.println(result);
 			
-					
 		}
+		
 	}
-	
+
+
+
+
+
+
+
+
+
 }
